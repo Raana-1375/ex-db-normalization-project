@@ -15,3 +15,4 @@ This project transforms an unnormalized dataset into Third Normal Form (3NF) bas
 ![Chen ER Diagram](./diagrams/chen-er-diagram.png)
 
 ### 2. Crow's Foot Diagram (Database Schema)
+![Crow's Foot Diagram](./diagrams/crows-foot-diagram.png)
