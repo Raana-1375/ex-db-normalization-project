@@ -5,18 +5,18 @@
 The original dataset contains repeating groups (course1, course2, course3)
 and partial/transitive dependencies that need to be resolved.
 
-| id_student | name_student | classroom | classroom_description | course1 | course2 | course3 |
-|---|---|---|---|---|---|---|
-| 1 | Ana Martínez | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 2 | Luis Fernández | A102 | Web Backend | Java | Spring Framework | SQL |
-| 3 | Carla Gómez | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 4 | Diego López | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
-| 5 | Marta Sánchez | A102 | Web Backend | Java | Spring Framework | SQL |
-| 6 | Javier Torres | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 7 | Laura Ruiz | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
-| 8 | Pablo Ramírez | A102 | Web Backend | Java | Spring Framework | SQL |
-| 9 | Sofía Navarro | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 10 | Tomás Ortega | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
+| id_student | first_name | last_name | classroom | classroom_description | course1 | course2 | course3 |
+|---|---|---|---|---|---|---|---|
+| 1 | Ana | Martínez | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 2 | Luis | Fernández | A102 | Web Backend | Java | Spring Framework | SQL |
+| 3 | Carla | Gómez | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 4 | Diego | López | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
+| 5 | Marta | Sánchez | A102 | Web Backend | Java | Spring Framework | SQL |
+| 6 | Javier | Torres | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 7 | Laura | Ruiz | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
+| 8 | Pablo | Ramírez | A102 | Web Backend | Java | Spring Framework | SQL |
+| 9 | Sofía | Navarro | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 10 | Tomás | Ortega | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
 
 ---
 
@@ -29,12 +29,12 @@ the same concept (a course).
 
 **Solution:** Split each course into its own row.
 
-| id_student | name_student | classroom | classroom_description | course |
-|---|---|---|---|---|
-| 1 | Ana Martínez | A101 | Web Frontend | HTML |
-| 1 | Ana Martínez | A101 | Web Frontend | CSS |
-| 1 | Ana Martínez | A101 | Web Frontend | JavaScript |
-| ... | ... | ... | ... | ... |
+| id_student | first_name | last_name | classroom | classroom_description | course |
+|---|---|---|---|---|---|
+| 1 | Ana | Martínez | A101 | Web Frontend | HTML |
+| 1 | Ana | Martínez | A101 | Web Frontend | CSS |
+| 1 | Ana | Martínez | A101 | Web Frontend | JavaScript |
+| ... | ... | ... | ... | ... | ... |
 
 Primary key: `(id_student, course)`
 
@@ -45,7 +45,7 @@ Primary key: `(id_student, course)`
 **Rule:** Must satisfy 1NF. No partial dependency (every non-key column must
 depend on the WHOLE primary key, not just part of it).
 
-**Problem found:** `name_student`, `classroom`, and `classroom_description`
+**Problem found:** `first_name`, `last_name`, `classroom`, and `classroom_description`
 only depend on `id_student`, not on the full key `(id_student, course)`.
 This is a partial dependency.
 
@@ -53,18 +53,18 @@ This is a partial dependency.
 
 **Table: Students**
 
-| id_student (PK) | name_student | classroom | classroom_description |
-|---|---|---|---|
-| 1 | Ana Martínez | A101 | Web Frontend |
-| 2 | Luis Fernández | A102 | Web Backend |
+| id_student (PK) | first_name | last_name | classroom | classroom_description |
+|---|---|---|---|---|
+| 1 | Ana | Martínez | A101 | Web Frontend |
+| 2 | Luis | Fernández | A102 | Web Backend |
 
-**Table: Student_Courses**
+**Table: Courses**
 
-| id_student (FK) | course |
-|---|---|
-| 1 | HTML |
-| 1 | CSS |
-| 1 | JavaScript |
+| course_id (PK) | id_student (FK) | course |
+|---|---|---|
+| 1 | 1 | HTML |
+| 2 | 1 | CSS |
+| 3 | 1 | JavaScript |
 
 ---
 
@@ -82,18 +82,18 @@ The exercise statement confirms this: "Programming languages depend on the class
 
 **Table: Students**
 
-| id_student (PK) | name_student | classroom (FK) |
-|---|---|---|
-| 1 | Ana Martínez | A101 |
-| 2 | Luis Fernández | A102 |
-| 3 | Carla Gómez | A101 |
-| 4 | Diego López | A103 |
-| 5 | Marta Sánchez | A102 |
-| 6 | Javier Torres | A101 |
-| 7 | Laura Ruiz | A103 |
-| 8 | Pablo Ramírez | A102 |
-| 9 | Sofía Navarro | A101 |
-| 10 | Tomás Ortega | A103 |
+| id_student (PK) | first_name | last_name | classroom (FK) |
+|---|---|---|---|
+| 1 | Ana | Martínez | A101 |
+| 2 | Luis | Fernández | A102 |
+| 3 | Carla | Gómez | A101 |
+| 4 | Diego | López | A103 |
+| 5 | Marta | Sánchez | A102 |
+| 6 | Javier | Torres | A101 |
+| 7 | Laura | Ruiz | A103 |
+| 8 | Pablo | Ramírez | A102 |
+| 9 | Sofía | Navarro | A101 |
+| 10 | Tomás | Ortega | A103 |
 
 **Table: Classrooms**
 
@@ -103,16 +103,16 @@ The exercise statement confirms this: "Programming languages depend on the class
 | A102 | Web Backend |
 | A103 | Desarrollo Mobile |
 
-**Table: Classroom_Courses**
+**Table: Courses**
 
-| classroom (FK) | course |
-|---|---|
-| A101 | HTML |
-| A101 | CSS |
-| A101 | JavaScript |
-| A102 | Java |
-| A102 | Spring Framework |
-| A102 | SQL |
-| A103 | Kotlin |
-| A103 | Swift |
-| A103 | Dart |
+| course_id (PK) | classroom (FK) | course |
+|---|---|---|
+| 1 | A101 | HTML |
+| 2 | A101 | CSS |
+| 3 | A101 | JavaScript |
+| 4 | A102 | Java |
+| 5 | A102 | Spring Framework |
+| 6 | A102 | SQL |
+| 7 | A103 | Kotlin |
+| 8 | A103 | Swift |
+| 9 | A103 | Dart |
