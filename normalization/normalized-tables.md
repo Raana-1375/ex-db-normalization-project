@@ -5,18 +5,18 @@
 The original dataset contains repeating groups (course1, course2, course3)
 and partial/transitive dependencies that need to be resolved.
 
-| id_student | first_name | last_name | classroom | classroom_description | course1 | course2 | course3 |
-|---|---|---|---|---|---|---|---|
-| 1 | Ana | Martínez | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 2 | Luis | Fernández | A102 | Web Backend | Java | Spring Framework | SQL |
-| 3 | Carla | Gómez | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 4 | Diego | López | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
-| 5 | Marta | Sánchez | A102 | Web Backend | Java | Spring Framework | SQL |
-| 6 | Javier | Torres | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 7 | Laura | Ruiz | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
-| 8 | Pablo | Ramírez | A102 | Web Backend | Java | Spring Framework | SQL |
-| 9 | Sofía | Navarro | A101 | Web Frontend | HTML | CSS | JavaScript |
-| 10 | Tomás | Ortega | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
+| id_student | name_student | classroom | classroom_description | course1 | course2 | course3 |
+|---|---|---|---|---|---|---|
+| 1 | Ana Martínez | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 2 | Luis Fernández | A102 | Web Backend | Java | Spring Framework | SQL |
+| 3 | Carla Gómez | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 4 | Diego López | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
+| 5 | Marta Sánchez | A102 | Web Backend | Java | Spring Framework | SQL |
+| 6 | Javier Torres | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 7 | Laura Ruiz | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
+| 8 | Pablo Ramírez | A102 | Web Backend | Java | Spring Framework | SQL |
+| 9 | Sofía Navarro | A101 | Web Frontend | HTML | CSS | JavaScript |
+| 10 | Tomás Ortega | A103 | Desarrollo Mobile | Kotlin | Swift | Dart |
 
 ---
 
